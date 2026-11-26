@@ -1,0 +1,452 @@
+{
+  "pageTitles": {
+    "login": "Log in · {{brand}}",
+    "authorRegister": "Become an author · {{brand}}",
+    "authorDashboard": "Author dashboard · {{brand}}",
+    "adminDashboard": "Admin dashboard · {{brand}}",
+    "authorStories": "My stories · {{brand}}",
+    "adminStories": "Stories · {{brand}}",
+    "approvals": "Approvals · {{brand}}",
+    "catalogue": "Categories and languages · {{brand}}",
+    "library": "My library · {{brand}}"
+  },
+  "errors": {
+    "network": "Network error. Please check your connection.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "common": {
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "actions": "Actions",
+    "loading": "Loading…",
+    "empty": "Nothing to show yet.",
+    "search": "Search",
+    "all": "All",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {{page}} of {{total}}",
+    "confirm": "Confirm",
+    "logout": "Log out",
+    "yes": "Yes",
+    "no": "No",
+    "active": "Active",
+    "inactive": "Inactive",
+    "none": "—",
+    "views": "Views",
+    "updated": "Updated",
+    "pages": "Pages",
+    "status": "Status",
+    "title": "Title",
+    "description": "Description",
+    "name": "Name",
+    "email": "Email",
+    "price": "Price (₹)",
+    "rupeesHint": "Enter the price in rupees, for example 49 or 49.50",
+    "priceNote": "Price and access type are set by the admin."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "stories": "Stories",
+    "newStory": "New story",
+    "approvals": "Approvals",
+    "catalogue": "Categories & languages",
+    "subscriptions": "Subscription plans",
+    "payments": "Payments"
+  },
+  "payments": {
+    "title": "Payments",
+    "from": "From",
+    "to": "To",
+    "status": "Status",
+    "type": "Type",
+    "all": "All",
+    "clear": "Clear",
+    "search": "Search",
+    "exportExcel": "Export to Excel",
+    "exporting": "Preparing file…",
+    "exportFailed": "Could not create the Excel file. Please try again.",
+    "statusSuccess": "Success",
+    "statusPending": "Pending",
+    "statusFailed": "Failed",
+    "statusRefunded": "Refunded",
+    "typeStory": "Story purchase",
+    "typeSubscription": "Subscription",
+    "totals": "{{rows}} payments in this range · paid ₹{{amount}}",
+    "empty": "No payments in this range.",
+    "col": {
+      "when": "Date and time",
+      "type": "Type",
+      "item": "Item",
+      "buyer": "Buyer",
+      "amount": "Amount",
+      "status": "Status",
+      "order": "Payment or order id"
+    },
+    "typeName": {
+      "STORY_PURCHASE": "Story purchase",
+      "SUBSCRIPTION": "Subscription"
+    },
+    "statusName": {
+      "SUCCESS": "Success",
+      "PENDING": "Pending",
+      "FAILED": "Failed",
+      "REFUNDED": "Refunded"
+    }
+  },
+  "status": {
+    "DRAFT": "Draft",
+    "PENDING_APPROVAL": "Pending approval",
+    "REJECTED": "Rejected",
+    "PUBLISHED": "Published",
+    "ARCHIVED": "Archived"
+  },
+  "access": {
+    "FREE": "Free",
+    "PREMIUM": "Premium"
+  },
+  "dashboard": {
+    "author": {
+      "title": "Your writing at a glance",
+      "total": "Total stories",
+      "draft": "Drafts",
+      "pending": "Pending approval",
+      "published": "Published",
+      "rejected": "Rejected",
+      "views": "Total views"
+    },
+    "admin": {
+      "title": "Platform overview",
+      "total": "Total stories",
+      "free": "Free stories",
+      "premium": "Premium stories",
+      "pending": "Pending approvals",
+      "authors": "Authors",
+      "readers": "Readers",
+      "views": "Total story views",
+      "purchases": "Story purchases",
+      "subscriptions": "Active subscriptions",
+      "revenue": "Total revenue",
+      "monthlyRevenue": "Monthly revenue",
+      "paymentsNote": "Revenue, purchases and subscriptions appear after the payments phase is built."
+    },
+    "quickActions": "Quick actions"
+  },
+  "stories": {
+    "listTitle": "Stories",
+    "newStory": "New story",
+    "searchPlaceholder": "Search by title",
+    "allStatuses": "All statuses",
+    "empty": "No stories yet. Create your first story to get started.",
+    "submit": "Submit for approval",
+    "submitted": "Submitted for approval.",
+    "approve": "Approve",
+    "approved": "Story approved and published.",
+    "reject": "Reject",
+    "rejectTitle": "Reject story",
+    "rejectReason": "Reason shown to the author",
+    "rejected": "Story rejected.",
+    "publish": "Publish",
+    "published": "Story published.",
+    "unpublish": "Unpublish",
+    "unpublished": "Story taken offline.",
+    "archive": "Archive",
+    "archived": "Story archived.",
+    "deleteTitle": "Delete story",
+    "deleteConfirm": "Delete this story and all its pages? This cannot be undone.",
+    "deleted": "Story deleted.",
+    "pagesAction": "Pages",
+    "downloadPdf": "Download book (PDF)",
+    "downloadFailed": "Could not download the book. Publish the story first.",
+    "rejectionNote": "Rejected: {{reason}}",
+    "pendingNote": "Your edits are waiting for approval. Readers still see the last approved version.",
+    "form": {
+      "createTitle": "New story",
+      "editTitle": "Edit story",
+      "details": "Details",
+      "author": "Author",
+      "choosePlaceholder": "Choose…",
+      "category": "Category",
+      "language": "Language",
+      "cover": "Cover image",
+      "coverHint": "JPEG, PNG or WebP. Up to the size set by the server.",
+      "uploadCover": "Upload cover",
+      "removeCover": "Remove cover",
+      "uploading": "Uploading…",
+      "saveDetails": "Save details",
+      "created": "Story created. Now add pages.",
+      "pricing": "Pricing and access",
+      "access": "Access",
+      "freePreviewPages": "Free preview pages",
+      "freePreviewHint": "Readers can open these pages without paying.",
+      "savePricing": "Save pricing",
+      "pricingSaved": "Pricing saved.",
+      "featured": "Featured on the home page",
+      "saveFeatured": "Save featured flag",
+      "priceRequired": "Premium stories need a price above zero.",
+      "workflow": "Status and workflow",
+      "currentStatus": "Current status",
+      "managePages": "Manage pages"
+    },
+    "pages": {
+      "title": "Pages for \"{{story}}\"",
+      "backToStories": "Back to stories",
+      "empty": "This story has no pages yet.",
+      "newPage": "New page",
+      "editPage": "Edit page",
+      "pageTitle": "Page title",
+      "content": "Content",
+      "savePage": "Save page",
+      "pageSaved": "Page saved.",
+      "deletePage": "Delete page",
+      "deletePageConfirm": "Delete this page? Later pages are renumbered.",
+      "pageDeleted": "Page deleted.",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "orderSaved": "Page order saved.",
+      "order": "Order"
+    }
+  },
+  "editor": {
+    "paragraph": "Paragraph",
+    "heading2": "Heading 2",
+    "heading3": "Heading 3",
+    "bold": "Bold",
+    "italic": "Italic",
+    "underline": "Underline",
+    "bulletList": "Bullet list",
+    "orderedList": "Numbered list",
+    "image": "Insert image",
+    "imageUploaded": "Image added.",
+    "placeholder": "Start writing your page…"
+  },
+  "approvals": {
+    "title": "Waiting for approval",
+    "empty": "No stories are waiting for approval.",
+    "preview": "Open"
+  },
+  "catalogue": {
+    "categoriesTitle": "Categories",
+    "languagesTitle": "Languages",
+    "addCategory": "Add category",
+    "addLanguage": "Add language",
+    "code": "Language code",
+    "codeHint": "For example en, hi or en-IN",
+    "saved": "Saved.",
+    "toggle": "Toggle active"
+  },
+  "placeholder": {
+    "title": "{{name}}",
+    "comingSoon": "This screen is part of a later development phase.",
+    "adminDashboard": "Admin dashboard",
+    "authorDashboard": "Author dashboard",
+    "readerLibrary": "My library",
+    "home": "KATHAVOX"
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "intro": "Authors and readers use the same form. Need an author account?",
+      "registerLink": "Register",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "submitting": "Logging in…",
+      "forgotPassword": "Forgot password?",
+      "sessionExpired": "Your session has ended. Please log in again.",
+      "failed": "Login failed. Please try again."
+    },
+    "setPassword": {
+      "title": "Set your password",
+      "intro": "Your payment is confirmed. Choose a password to log in and read your stories.",
+      "password": "New password",
+      "confirm": "Confirm password",
+      "submit": "Save password",
+      "mismatch": "Passwords do not match"
+    },
+    "reset": {
+      "title": "Reset your password",
+      "intro": "Choose a new password to log in again."
+    },
+    "readerRegister": {
+      "title": "Create your reader account",
+      "intro": "Enter your name and email. We will send you a link to set your password.",
+      "name": "Your name",
+      "submit": "Send link"
+    },
+    "verify": {
+      "title": "Verify your email",
+      "working": "Checking your link…",
+      "success": "Your email is verified. You can now log in.",
+      "failed": "This link is invalid or has expired. Register again to get a new link.",
+      "missing": "The link is incomplete. Open the link from the email again."
+    },
+    "authorRegister": {
+      "title": "Become an author",
+      "intro": "Create an author account. We will email you a link to verify your address before you can log in.",
+      "fullName": "Full name",
+      "penName": "Pen name",
+      "password": "Password (at least 10 characters)",
+      "confirmPassword": "Confirm password",
+      "mismatch": "The passwords do not match.",
+      "submit": "Create author account"
+    },
+    "forgot": {
+      "title": "Forgot password",
+      "intro": "Enter your email. If an account exists, we will send a link to reset your password.",
+      "submit": "Send reset link"
+    },
+    "register": {
+      "title": "Create an account",
+      "intro": "Choose the account you need.",
+      "readerTitle": "I am a reader",
+      "readerBody": "Read free and premium stories, bookmark what you like, and buy stories or subscribe.",
+      "authorTitle": "I am an author",
+      "authorBody": "Write and publish your own stories after approval.",
+      "haveAccount": "Already have an account? Log in"
+    }
+  },
+  "public": {
+    "footer": "KATHAVOX · Read stories free, or unlock premium chapters.",
+    "nav": {
+      "home": "Stories",
+      "login": "Log in",
+      "dashboard": "Dashboard",
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode",
+      "library": "My library",
+      "search": "Search",
+      "searchPlaceholder": "Search stories by title"
+    },
+    "home": {
+      "heading": "Read something new",
+      "subheading": "Free stories and premium stories from our authors.",
+      "searchPlaceholder": "Search stories by title",
+      "empty": "No published stories match your search yet.",
+      "featured": "Featured",
+      "noCover": "No cover"
+    },
+    "story": {
+      "by": "by {{author}}",
+      "pages": "pages",
+      "views": "views",
+      "freeStory": "Free story",
+      "premiumStory": "Premium · ₹{{price}} · first {{preview}} pages free",
+      "startReading": "Start reading",
+      "chapters": "Chapters",
+      "freePreview": "Free preview",
+      "locked": "Locked",
+      "lockedPage": "Locked chapter",
+      "pageFallback": "Page {{n}}",
+      "back": "Back to stories",
+      "includedInSubscription": "Included in your {{plan}} subscription, active until",
+      "purchasedNote": "You bought this story. All chapters are yours to read.",
+      "freeNote": "This story is free. All chapters are open."
+    },
+    "reader": {
+      "smaller": "Smaller text",
+      "bigger": "Larger text",
+      "share": "Share",
+      "goTo": "Go to",
+      "pageOf": "Page {{page}} of {{total}}",
+      "readingTime": "About {{minutes}} min read",
+      "previous": "Previous",
+      "next": "Next",
+      "copied": "Link copied",
+      "lockedTitle": "Page {{n}} is locked",
+      "lockedBody": "Buy this story for ₹{{price}}, or subscribe to read all stories. Readers who already bought this story can log in to continue."
+    },
+    "locked": {
+      "title": "Unlock the rest of this story",
+      "body": "The first pages are free. Buy this story or subscribe to continue.",
+      "buyStory": "Buy this story",
+      "subscribe": "Subscribe to read all stories",
+      "alreadyPurchased": "Already purchased? Log in",
+      "paymentsSoon": "Payments are coming in the next phase"
+    }
+  },
+  "subscriptions": {
+    "info": "About subscriptions",
+    "page": {
+      "title": "Subscriptions",
+      "back": "Back to stories",
+      "intro": "Read every premium story with a subscription. Pick the plan that suits you.",
+      "benefitsTitle": "What you get",
+      "benefit1": "Access to all published premium stories",
+      "benefit2": "Access to new premium stories as they are published",
+      "benefit3": "Ad-free reading while your subscription is active",
+      "benefit4": "Renewal is manual: you choose when to renew. There is no automatic billing.",
+      "forDays": "{{days}} days",
+      "subscribe": "Subscribe",
+      "empty": "No subscription plans are available yet."
+    },
+    "admin": {
+      "title": "Subscription plans",
+      "intro": "Set the price and duration of each plan. Only active plans are shown to readers.",
+      "empty": "No plans yet. Add a monthly, quarterly or yearly plan.",
+      "days": "Duration (days)",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "editPlan": "Edit plan",
+      "newPlan": "New plan",
+      "namePlaceholder": "For example Monthly",
+      "saved": "Plan saved."
+    }
+  },
+  "payment": {
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "working": "Opening payment…",
+      "hint": "Access is linked to this email. New buyers get an email to set a password.",
+      "checkPayment": "Check my payment",
+      "toAccount": "This purchase goes to your account: {{email}}"
+    },
+    "status": {
+      "granted": "Payment confirmed. Access is now unlocked.",
+      "grantedNewAccount": "Payment confirmed. We sent a link to {{email}} to set your password.",
+      "cancelled": "Payment was cancelled. Nothing was charged.",
+      "failed": "Payment failed. Please try again.",
+      "attemptFailed": "That payment did not go through. You can try again in the same window.",
+      "notFoundYet": "We could not find a completed payment for this order yet. If you paid, wait a moment and try again.",
+      "nextSteps": "Next: open the link we emailed to set your password, then log in. Your purchase is linked to this email.",
+      "goLogin": "Log in to my library"
+    }
+  },
+  "library": {
+    "title": "My library",
+    "subscription": "Subscription",
+    "activeUntil": "{{plan}} is active until",
+    "noSubscription": "You have no subscription.",
+    "renew": "Renew or subscribe",
+    "purchased": "Purchased stories",
+    "noPurchases": "You have not bought any stories yet.",
+    "payments": "Payments",
+    "noPayments": "No payments yet.",
+    "type": {
+      "STORY_PURCHASE": "Story purchase",
+      "SUBSCRIPTION": "Subscription"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "SUCCESS": "Paid",
+      "FAILED": "Failed",
+      "REFUNDED": "Refunded"
+    },
+    "bookmarks": "Bookmarks",
+    "noBookmarks": "You have not bookmarked any stories yet."
+  },
+  "bookmark": {
+    "add": "Bookmark",
+    "remove": "Bookmarked · remove"
+  },
+  "theme": {
+    "dark": "Switch to dark mode",
+    "light": "Switch to light mode"
+  }
+}

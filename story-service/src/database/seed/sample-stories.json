@@ -1,0 +1,154 @@
+{
+  "sampleStories": [
+    {
+      "title": "The Lighthouse at Kestrel Point",
+      "description": "A keeper finds a logbook that describes the night she was born.",
+      "categorySlug": "mystery",
+      "languageCode": "en",
+      "pages": [
+        {
+          "title": "The Keeper",
+          "content": "<p>Nadia climbed the one hundred and twelve steps of Kestrel Point every evening, just as her grandfather had done before her.</p><p>The lamp was old, but the storms had never once put it out.</p>"
+        },
+        {
+          "title": "The Logbook",
+          "content": "<p>In the bottom drawer she found a logbook. Its last entry was dated the night of her birth.</p><p>The handwriting was her grandfather's, and it said only: <em>The light must not go out tonight.</em></p>"
+        },
+        {
+          "title": "The Fishermen",
+          "content": "<p>At dawn, the fishermen of the harbour came to the foot of the cliff. They had seen a second light far out at sea.</p><p>Nobody had lit a lamp out there in forty years.</p>"
+        },
+        {
+          "title": "The Second Light",
+          "content": "<p>Nadia rowed out alone. The second light was an old buoy, wrapped in a fishing net with a note tied to it.</p><p>The note carried her name.</p>"
+        }
+      ]
+    },
+    {
+      "title": "Letters from Monsoon Lane",
+      "description": "Two neighbours who only speak through the letters they leave on a shared wall.",
+      "categorySlug": "romance",
+      "languageCode": "en",
+      "pages": [
+        {
+          "title": "The First Note",
+          "content": "<p>The wall between number seven and number nine had a crack shaped like a question mark. One rainy morning, Meera found a folded paper tucked into it.</p><p>It read: <em>Your umbrella is in my garden again.</em></p>"
+        },
+        {
+          "title": "The Reply",
+          "content": "<p>She wrote back the same afternoon. <em>Then keep it. It has been waiting for a better owner.</em></p>"
+        },
+        {
+          "title": "Rain and Ink",
+          "content": "<p>Through the monsoon, the letters grew longer. They spoke of tea that went cold, of festivals missed, and of a song that played on the radio every evening at six.</p><p>Meera began to leave the window open at six.</p>"
+        },
+        {
+          "title": "The Door",
+          "content": "<p>On the last day of rain, someone knocked on her front door. It was the neighbour from number nine, holding an umbrella that was not hers.</p>"
+        }
+      ]
+    },
+    {
+      "title": "The Last Train to Ajmer",
+      "description": "A ticket collector has one night left before the old line closes forever.",
+      "categorySlug": "drama",
+      "languageCode": "en",
+      "pages": [
+        {
+          "title": "Final Shift",
+          "content": "<p>Ramesh punched his ticket clipper for the last time at the Jaipur junction. Tomorrow the old line would be replaced by a faster, quieter track.</p>"
+        },
+        {
+          "title": "The Passenger",
+          "content": "<p>In the last carriage sat an old woman with a single suitcase. She held a ticket to Ajmer, dated thirty years earlier.</p><p>Ramesh did not have the heart to ask her to leave.</p>"
+        },
+        {
+          "title": "The Stop",
+          "content": "<p>At each small station, a few people boarded and gave Ramesh a small wave. They were the families who had grown up on this line, and they had come to say goodbye.</p>"
+        },
+        {
+          "title": "Ajmer",
+          "content": "<p>When the train reached Ajmer, the woman stepped down and walked to the gate of the old shrine. She turned, smiled, and disappeared into the crowd.</p>"
+        },
+        {
+          "title": "The Clipper",
+          "content": "<p>Ramesh kept the clipper in his pocket for the rest of his life. Some journeys, he decided, are better remembered than finished.</p>"
+        }
+      ]
+    },
+    {
+      "title": "Whispers in the Old Library",
+      "description": "A student discovers that the books in the reading room remember their readers.",
+      "categorySlug": "fantasy",
+      "languageCode": "en",
+      "pages": [
+        {
+          "title": "Reading Room Four",
+          "content": "<p>Ananya was assigned to the basement reading room because no one else wanted it. The shelves hummed faintly, like a kettle about to boil.</p>"
+        },
+        {
+          "title": "The Blue Book",
+          "content": "<p>She pulled out a blue book with no title. When she opened it, a voice whispered her name, and the page showed a picture of her sitting in this very room.</p><p>The picture was dated next week.</p>"
+        },
+        {
+          "title": "The Librarian",
+          "content": "<p>The librarian, an old man with ink on his cuffs, did not seem surprised. <em>The library keeps every reader it has ever loved,</em> he said. <em>Be careful which ones you open.</em></p>"
+        },
+        {
+          "title": "The Choice",
+          "content": "<p>Ananya closed the blue book and placed it back on its shelf. The humming stopped. For the first time she heard the library breathe out.</p>"
+        }
+      ]
+    },
+    {
+      "title": "The Night Market",
+      "description": "A stolen recipe, a missing chef, and one night to find both before sunrise.",
+      "categorySlug": "thriller",
+      "languageCode": "en",
+      "pages": [
+        {
+          "title": "Opening Bell",
+          "content": "<p>At midnight the lanterns of the old market flickered on, one by one. Vikram had until dawn to return a recipe that someone had stolen from his grandmother.</p>"
+        },
+        {
+          "title": "Stall Twelve",
+          "content": "<p>Stall twelve was locked, but its back door was open. Inside, the spice jars had been emptied and rearranged into a message.</p>"
+        },
+        {
+          "title": "The Traitor",
+          "content": "<p>The message pointed to the spice seller across the lane. He smiled too widely when Vikram came close, and his hands were stained with saffron.</p><p>He was the only one who knew the recipe by heart.</p>"
+        },
+        {
+          "title": "Sunrise",
+          "content": "<p>As the first light touched the rooftops, Vikram returned the recipe to its rightful place. The market fell silent, then cheered, and the lanterns went dark one by one.</p>"
+        }
+      ]
+    },
+    {
+      "title": "ସମୁଦ୍ରର ଗୀତ",
+      "slug": "samudrara-gita",
+      "description": "ଏକ ଛୋଟ ସମୁଦ୍ର ଗାଁର ଝିଅ ତୂଫାନ ସମୟରେ ଗାଁ ଲୋକଙ୍କୁ ଏକତ୍ର କରେ।",
+      "categorySlug": "drama",
+      "languageCode": "or",
+      "pages": [
+        {
+          "title": "ଗାଁର ସକାଳ",
+          "content": "<p>ସମୁଦ୍ର କୂଳରେ ଏକ ଛୋଟ ଗାଁ ଥିଲା। ସେଠାରେ ରାଧା ନାମ ଏକ ଝିଅ ରହୁଥିଲା।</p><p>ସକାଳୁ ସକାଳୁ ମାଛୁଆମାନେ ଜାଲ ଧରି ସମୁଦ୍ରକୁ ଯାଉଥିଲେ।</p>"
+        },
+        {
+          "title": "ପୁରୁଣା ନାଆ",
+          "content": "<p>ରାଧାର ବାପା ଜଣେ ମାଛୁଆ ଥିଲେ। ସେ ଏକ ପୁରୁଣା ନାଆରେ ସମୁଦ୍ରକୁ ଯାଉଥିଲେ।</p><p>ରାଧା ପ୍ରତିଦିନ ସନ୍ଧ୍ୟାରେ ତାଙ୍କ ପାଇଁ କୂଳରେ ଦୀପ ଜାଳୁଥିଲା।</p>"
+        },
+        {
+          "title": "ତୂଫାନ",
+          "content": "<p>ଏକ ଦିନ ଭୟଙ୍କର ତୂଫାନ ଆସିଲା। ରାଧା ଗାଁ ଲୋକଙ୍କୁ ଡାକି କହିଲା, ଆସନ୍ତୁ, ଆମେ ସମସ୍ତେ ମିଶି ନାଆ ଓ ଘର ସୁରକ୍ଷିତ କରିବା।</p>"
+        },
+        {
+          "title": "ନୂଆ ସକାଳ",
+          "content": "<p>ତୂଫାନ ଶାନ୍ତ ହେଲା। ସମୁଦ୍ର ପୁଣି ଗୀତ ଗାଇଲା, ଆଉ ରାଧା ଜାଣିଲା ଯେ ସାହସ ଓ ଏକତା ସବୁଠାରୁ ବଡ଼ ଶକ୍ତି।</p>"
+        }
+      ]
+    }
+  ],
+  "authorEmail": "sample.author@kathaverse.local"
+}

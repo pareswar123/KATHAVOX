@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "story-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start", "--prefix", "story-web"],
+      "port": 4200
+    },
+    {
+      "name": "story-service",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:dev", "--prefix", "story-service"],
+      "port": 8080
+    }
+  ]
+}

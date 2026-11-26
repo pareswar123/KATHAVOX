@@ -1,0 +1,95 @@
+{
+  "auth": {
+    "authRequired": "Authentication required",
+    "tokenInvalid": "Access token is invalid or expired",
+    "sessionInactive": "Session is no longer active",
+    "accountInactive": "Account is not active",
+    "accountNotFound": "Account not found",
+    "invalidCredentials": "Invalid email or password",
+    "verifyEmailFirst": "Please verify your email before logging in",
+    "sessionExpired": "Session expired, please log in again",
+    "reuseDetected": "Suspicious session activity detected. Please log in again.",
+    "currentPasswordIncorrect": "Current password is incorrect",
+    "passwordMismatch": "Passwords do not match",
+    "passwordLength": "Password must be between {{min}} and {{max}} characters",
+    "passwordChanged": "Password changed successfully.",
+    "passwordReset": "Your password has been updated. Please log in.",
+    "emailVerified": "Email verified. You can now log in.",
+    "verificationInvalid": "This verification link is invalid or has expired",
+    "resetInvalid": "This link is invalid or has expired",
+    "registerAccepted": "If the address is new, a verification email has been sent.",
+    "resetAccepted": "If an account exists for this email, a reset link has been sent.",
+    "readerRegisterAccepted": "Check your email. We sent a link to set your password."
+  },
+  "access": {
+    "forbidden": "You do not have permission to perform this action"
+  },
+  "csrf": {
+    "headerMissing": "Missing required request header",
+    "originNotAllowed": "Origin not allowed"
+  },
+  "errors": {
+    "internal": "Something went wrong. Please try again."
+  },
+  "mail": {
+    "verifySubject": "Verify your {{brand}} account",
+    "verifyBody": "Verify your email address: {{link}}\n\nThis link expires in {{hours}} hours.",
+    "resetSubject": "Reset your {{brand}} password",
+    "resetBody": "Reset your password: {{link}}\n\nThis link expires in {{hours}} hours.",
+    "setPasswordSubject": "Set your {{brand}} password",
+    "setPasswordBody": "Thank you for your purchase. Set your password here: {{link}}\n\nThis link expires in {{hours}} hours.",
+    "welcomeSubject": "Welcome to {{brand}}: set your password",
+    "welcomeBody": "Welcome to {{brand}}. Set your password here: {{link}}\n\nThis link expires in {{hours}} hours."
+  },
+  "stories": {
+    "notFound": "Story not found",
+    "notEditable": "This story can no longer be edited",
+    "notPublished": "This story has no published version to download yet",
+    "notDeletable": "Only draft or rejected stories can be deleted",
+    "invalidTransition": "This action is not allowed while the story is {{status}}",
+    "needsPages": "Add at least one page before continuing",
+    "priceRequired": "Premium stories need a price greater than zero",
+    "categoryInvalid": "Choose an active category",
+    "languageInvalid": "Choose an active language",
+    "authorInvalid": "The selected user is not an author",
+    "contentTooLong": "Page content is longer than {{max}} characters",
+    "pageNotFound": "Page not found",
+    "pageOrderInvalid": "The page order must list every page of this story exactly once"
+  },
+  "uploads": {
+    "tooLarge": "File is larger than {{maxMb}} MB",
+    "unsupportedType": "Only JPEG, PNG or WebP images are allowed",
+    "missingFile": "Choose a file to upload",
+    "invalidKind": "Upload kind must be cover or image"
+  },
+  "catalog": {
+    "notFound": "Item not found",
+    "codeTaken": "A language with this code already exists"
+  },
+  "public": {
+    "storyNotFound": "Story not found"
+  },
+  "subscriptions": {
+    "planNotFound": "Subscription plan not found"
+  },
+  "payments": {
+    "notConfigured": "Payments are not configured yet. Add the Razorpay test keys to .env.",
+    "invalidSignature": "Payment signature is not valid",
+    "notCaptured": "Payment has not been captured",
+    "amountMismatch": "Payment amount does not match the order",
+    "storyNotForSale": "This story is not available for purchase",
+    "planNotAvailable": "This subscription plan is not available",
+    "alreadyPurchased": "You already own this story",
+    "orderNotFound": "Payment order not found",
+    "webhookInvalid": "Webhook signature is not valid",
+    "granted": "Payment confirmed",
+    "alreadyGranted": "This payment was already confirmed",
+    "keysRejected": "Razorpay rejected the key ID or secret in .env. Copy both again from the same test key pair."
+  },
+  "reader": {
+    "storyNotFound": "Story not found",
+    "lockedStory": "This page is locked. Buy this story or subscribe to read it.",
+    "subscriptionNotValid": "Your subscription is not valid or has expired. Renew it to read all premium stories. Stories you bought stay available.",
+    "pageNotFound": "Page not found"
+  }
+}

@@ -1,0 +1,24 @@
+# Secrets: real settings live in .env files; only the .env.example templates are committed
+.env
+.env.*
+!.env.example
+
+# Generated: rebuilt by npm install and ng build
+node_modules/
+dist/
+.angular/
+out-tsc/
+*.tsbuildinfo
+
+# Lock files are not committed (packages resolve from package.json ranges)
+package-lock.json
+
+# Logs and editor files
+npm-debug.log*
+yarn-error.log*
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+Thumbs.db
+desktop.ini

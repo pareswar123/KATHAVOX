@@ -1,0 +1,91 @@
+{
+  "categories": [
+    {
+      "name": "Horror",
+      "slug": "horror"
+    },
+    {
+      "name": "Romance",
+      "slug": "romance"
+    },
+    {
+      "name": "Thriller",
+      "slug": "thriller"
+    },
+    {
+      "name": "Mystery",
+      "slug": "mystery"
+    },
+    {
+      "name": "Fantasy",
+      "slug": "fantasy"
+    },
+    {
+      "name": "Drama",
+      "slug": "drama"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "code": "en",
+      "slug": "english"
+    },
+    {
+      "name": "Hindi",
+      "code": "hi",
+      "slug": "hindi"
+    },
+    {
+      "name": "Odia",
+      "code": "or",
+      "slug": "odia"
+    }
+  ],
+  "subscriptionPlans": [
+    {
+      "name": "Monthly",
+      "description": "Access to all premium stories for 30 days",
+      "pricePaise": 9900,
+      "durationDays": 30
+    },
+    {
+      "name": "Quarterly",
+      "description": "Access to all premium stories for 90 days",
+      "pricePaise": 24900,
+      "durationDays": 90
+    },
+    {
+      "name": "Yearly",
+      "description": "Access to all premium stories for 365 days",
+      "pricePaise": 79900,
+      "durationDays": 365
+    }
+  ],
+  "sampleUsers": [
+    {
+      "fullName": "Sample Admin",
+      "penName": null,
+      "email": "sample.admin@kathaverse.local",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "fullName": "Sample Author",
+      "penName": "Sample Pen",
+      "email": "sample.author@kathaverse.local",
+      "roles": [
+        "AUTHOR"
+      ]
+    },
+    {
+      "fullName": "Sample Reader",
+      "penName": null,
+      "email": "sample.reader@kathaverse.local",
+      "roles": [
+        "READER"
+      ]
+    }
+  ]
+}
