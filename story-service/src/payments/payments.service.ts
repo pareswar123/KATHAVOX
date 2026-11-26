@@ -10,6 +10,7 @@ import { createHmac, randomBytes, randomUUID, timingSafeEqual } from 'crypto';
 import Razorpay from 'razorpay';
 import { DataSource, EntityManager, IsNull, MoreThan, Repository } from 'typeorm';
 import { AppConfig } from '../config/app-config';
+import { Book, BookPurchase, BookStatus } from '../database/entities/book.entity';
 import { hashToken, generateOpaqueToken } from '../common/token.util';
 import {
   AccessType,
@@ -55,6 +56,8 @@ export class PaymentsService {
     @InjectRepository(Story) private readonly stories: Repository<Story>,
     @InjectRepository(StoryPurchase) private readonly purchases: Repository<StoryPurchase>,
     @InjectRepository(SubscriptionPlan) private readonly plans: Repository<SubscriptionPlan>,
+    @InjectRepository(Book) private readonly books: Repository<Book>,
+    @InjectRepository(BookPurchase) private readonly bookPurchases: Repository<BookPurchase>,
     @InjectRepository(UserSubscription) private readonly subscriptions: Repository<UserSubscription>,
     @InjectRepository(User) private readonly users: Repository<User>,
     @InjectRepository(UserRoleEntity) private readonly roles: Repository<UserRoleEntity>,
@@ -67,7 +70,7 @@ export class PaymentsService {
 
   async createOrder(dto: CreateOrderDto) {
     const email = dto.checkoutEmail.trim().toLowerCase();
-    const { amountPaise, storyId, planId } = await this.priceFor(dto, email);
+    const { amountPaise, storyId, planId, bookId } = await this.priceFor(dto, email);
     const client = this.client();
 
     let order: { id: string };
@@ -92,6 +95,7 @@ export class PaymentsService {
         purchaseType: dto.purchaseType,
         storyId,
         planId,
+        bookId,
         amountPaise,
         currency: this.cfg.razorpay.currency,
         providerOrderId: order.id,
@@ -190,6 +194,7 @@ export class PaymentsService {
       .createQueryBuilder('p')
       .leftJoin(Story, 's', 's.id = p.storyId')
       .leftJoin(SubscriptionPlan, 'pl', 'pl.id = p.planId')
+      .leftJoin(Book, 'bk', 'bk.id = p.bookId')
       .where(`${when} >= :start`, { start: this.dayStart(from) })
       .andWhere(`${when} < :end`, { end: new Date(this.dayStart(to).getTime() + this.DAY_MS) });
     if (query.status && query.status !== 'ALL') qb.andWhere('p.paymentStatus = :status', { status: query.status });
@@ -210,6 +215,7 @@ export class PaymentsService {
           'p.purchaseType AS type',
           's.title AS "storyTitle"',
           'pl.name AS "planName"',
+          'bk.title AS "bookTitle"',
           'p.checkoutEmail AS "buyerEmail"',
           'p.amountPaise AS "amountPaise"',
           'p.paymentStatus AS status',
@@ -232,7 +238,7 @@ export class PaymentsService {
       id: String(r.id),
       occurredAt: r.occurredAt,
       type: r.type,
-      item: (r.storyTitle as string | null) ?? (r.planName as string | null) ?? '',
+      item: (r.storyTitle as string | null) ?? (r.bookTitle as string | null) ?? (r.planName as string | null) ?? '',
       buyerEmail: r.buyerEmail,
       amountPaise: Number(r.amountPaise),
       status: r.status,
@@ -277,8 +283,8 @@ export class PaymentsService {
     const sheet = XLSX.utils.json_to_sheet(
       rows.map((r) => ({
         'Date and time': this.formatLocal(r.occurredAt as Date),
-        Type: r.type === PaymentType.SUBSCRIPTION ? 'Subscription' : 'Story purchase',
-        Item: (r.storyTitle as string | null) ?? (r.planName as string | null) ?? '',
+        Type: r.type === PaymentType.SUBSCRIPTION ? 'Subscription' : r.type === PaymentType.BOOK_PURCHASE ? 'Book' : 'Story purchase',
+        Item: (r.storyTitle as string | null) ?? (r.bookTitle as string | null) ?? (r.planName as string | null) ?? '',
         Buyer: r.buyerEmail,
         'Amount (INR)': Number(r.amountPaise) / 100,
         Status: r.status,
@@ -386,6 +392,17 @@ export class PaymentsService {
       }
     }
 
+    if (payment.purchaseType === PaymentType.BOOK_PURCHASE && payment.bookId) {
+      const existingBook = await m.findOne(BookPurchase, { where: { userId: user.id, bookId: payment.bookId } });
+      if (existingBook) {
+        existingBook.status = PurchaseStatus.ACTIVE;
+        existingBook.paymentId = payment.id;
+        await m.save(existingBook);
+      } else {
+        await m.save(m.create(BookPurchase, { userId: user.id, bookId: payment.bookId, paymentId: payment.id, status: PurchaseStatus.ACTIVE }));
+      }
+    }
+
     if (payment.purchaseType === PaymentType.SUBSCRIPTION && payment.planId) {
       const plan = await m.findOneByOrFail(SubscriptionPlan, { id: payment.planId });
       // Renewals extend from the current end date, so no paid days are lost.
@@ -469,7 +486,10 @@ export class PaymentsService {
 
   // ---------- helpers ----------
 
-  private async priceFor(dto: CreateOrderDto, email: string): Promise<{ amountPaise: number; storyId: string | null; planId: string | null }> {
+  private async priceFor(
+    dto: CreateOrderDto,
+    email: string,
+  ): Promise<{ amountPaise: number; storyId: string | null; planId: string | null; bookId: string | null }> {
     if (dto.purchaseType === PaymentType.STORY_PURCHASE) {
       const story = dto.storyId ? await this.stories.findOne({ where: { id: dto.storyId } }) : null;
       if (!story || story.accessType !== AccessType.PREMIUM || story.pricePaise <= 0 || story.publicationStatus !== StoryStatus.PUBLISHED) {
@@ -479,12 +499,24 @@ export class PaymentsService {
       if (buyer && (await this.purchases.findOne({ where: { userId: buyer.id, storyId: story.id, status: PurchaseStatus.ACTIVE } }))) {
         throw new ConflictException(t('payments.alreadyPurchased'));
       }
-      return { amountPaise: story.pricePaise, storyId: story.id, planId: null };
+      return { amountPaise: story.pricePaise, storyId: story.id, planId: null, bookId: null };
+    }
+
+    if (dto.purchaseType === PaymentType.BOOK_PURCHASE) {
+      const book = dto.bookId ? await this.books.findOne({ where: { id: dto.bookId, status: BookStatus.PUBLISHED } }) : null;
+      if (!book || book.accessType !== AccessType.PREMIUM || book.pricePaise <= 0) {
+        throw new BadRequestException(t('books.notForSale'));
+      }
+      const buyer = await this.users.findOne({ where: { email } });
+      if (buyer && (await this.bookPurchases.findOne({ where: { userId: buyer.id, bookId: book.id, status: PurchaseStatus.ACTIVE } }))) {
+        throw new ConflictException(t('books.alreadyOwned'));
+      }
+      return { amountPaise: book.pricePaise, storyId: null, planId: null, bookId: book.id };
     }
 
     const plan = dto.planId ? await this.plans.findOne({ where: { id: dto.planId, isActive: true } }) : null;
     if (!plan) throw new BadRequestException(t('payments.planNotAvailable'));
-    return { amountPaise: plan.pricePaise, storyId: null, planId: plan.id };
+    return { amountPaise: plan.pricePaise, storyId: null, planId: plan.id, bookId: null };
   }
 
   private client(): Razorpay {

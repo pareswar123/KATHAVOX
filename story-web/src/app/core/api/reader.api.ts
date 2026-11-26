@@ -16,6 +16,7 @@ export interface Bookmark {
 export interface ReaderLibrary {
   bookmarks: Bookmark[];
   purchasedStories: Array<{ storyId: string; slug: string; title: string; purchasedAt: string }>;
+  books: Array<{ slug: string; title: string; coverImageUrl: string | null; via: 'PURCHASED' | 'SUBSCRIPTION' }>;
   subscription: { planName: string; endDate: string; active: boolean; message: string | null } | null;
   payments: Array<{ id: string; purchaseType: string; amountPaise: number; status: string; createdAt: string }>;
 }

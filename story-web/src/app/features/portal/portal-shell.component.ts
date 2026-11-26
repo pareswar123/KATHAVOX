@@ -27,6 +27,7 @@ const NAV: Record<Portal, NavItem[]> = {
     { labelKey: 'nav.catalogue', path: '/admin/catalogue' },
     { labelKey: 'nav.subscriptions', path: '/admin/subscription-plans' },
     { labelKey: 'nav.payments', path: '/admin/payments' },
+    { labelKey: 'nav.books', path: '/admin/books' },
   ],
 };
 

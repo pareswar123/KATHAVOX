@@ -4,7 +4,7 @@ import PDFDocument from 'pdfkit';
 import { parseDocument } from 'htmlparser2';
 
 /** Minimal shape of the parsed HTML tree (htmlparser2 nodes). */
-interface HtmlNode {
+export interface HtmlNode {
   type: string;
   name?: string;
   data?: string;
@@ -12,12 +12,12 @@ interface HtmlNode {
   children?: HtmlNode[];
 }
 
-interface Run {
+export interface Run {
   text: string;
   underline: boolean;
 }
 
-type Block =
+export type Block =
   | { kind: 'heading'; level: 2 | 3; runs: Run[] }
   | { kind: 'paragraph'; runs: Run[] }
   | { kind: 'item'; ordered: boolean; index: number; runs: Run[] }
@@ -155,7 +155,7 @@ export async function buildBookPdf(book: BookInput, opts: BookOptions): Promise<
 
 // ---------- HTML to blocks ----------
 
-function blocksFrom(nodes: HtmlNode[]): Block[] {
+export function blocksFrom(nodes: HtmlNode[]): Block[] {
   const out: Block[] = [];
   let loose: Run[] = [];
   const flush = () => {
@@ -228,7 +228,7 @@ function inlineRuns(nodes: HtmlNode[], underline: boolean): Run[] {
 
 // ---------- drawing ----------
 
-function renderBlock(
+export function renderBlock(
   doc: PDFKit.PDFDocument,
   block: Block,
   margin: number,
@@ -270,13 +270,13 @@ function renderBlock(
 }
 
 /** Thin horizontal rule across the content width. */
-function drawRule(doc: PDFKit.PDFDocument, x: number, y: number, width: number): void {
+export function drawRule(doc: PDFKit.PDFDocument, x: number, y: number, width: number): void {
   doc.save();
   doc.lineWidth(0.5).strokeColor('#999999').moveTo(x, y).lineTo(x + width, y).stroke();
   doc.restore();
 }
 
-function writeRuns(doc: PDFKit.PDFDocument, runs: Run[], options: PDFKit.Mixins.TextOptions): void {
+export function writeRuns(doc: PDFKit.PDFDocument, runs: Run[], options: PDFKit.Mixins.TextOptions): void {
   const clean = runs.filter((r) => r.text.length > 0);
   if (clean.length === 0) return;
   clean.forEach((run, i) => {

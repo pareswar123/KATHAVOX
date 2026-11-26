@@ -54,6 +54,21 @@ import { TranslatePipe, translate } from '../../core/i18n/i18n';
       </section>
 
       <section class="mt-6">
+        <h2 class="font-medium">{{ 'library.books' | translate }}</h2>
+        @if (lib.books.length === 0) {
+          <p class="mt-2 text-sm text-slate-500">{{ 'library.noBooks' | translate }}</p>
+        }
+        <ul class="mt-2 divide-y divide-slate-200 rounded-lg border border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+          @for (b of lib.books; track b.slug) {
+            <li class="flex items-center justify-between px-4 py-3">
+              <a [routerLink]="['/book', b.slug]" class="font-medium text-indigo-600 hover:underline dark:text-indigo-400">{{ b.title }}</a>
+              <span class="text-xs text-slate-500">{{ (b.via === 'SUBSCRIPTION' ? 'library.viaSubscription' : 'library.viaPurchase') | translate }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section class="mt-6">
         <h2 class="font-medium">{{ 'library.purchased' | translate }}</h2>
         @if (lib.purchasedStories.length === 0) {
           <p class="mt-2 text-sm text-slate-500">{{ 'library.noPurchases' | translate }}</p>

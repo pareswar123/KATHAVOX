@@ -57,7 +57,8 @@
     "approvals": "Approvals",
     "catalogue": "Categories & languages",
     "subscriptions": "Subscription plans",
-    "payments": "Payments"
+    "payments": "Payments",
+    "books": "Books"
   },
   "payments": {
     "title": "Payments",
@@ -321,7 +322,8 @@
       "lightMode": "Light mode",
       "library": "My library",
       "search": "Search",
-      "searchPlaceholder": "Search stories by title"
+      "searchPlaceholder": "Search stories by title",
+      "books": "Books"
     },
     "home": {
       "heading": "Read something new",
@@ -439,7 +441,11 @@
       "REFUNDED": "Refunded"
     },
     "bookmarks": "Bookmarks",
-    "noBookmarks": "You have not bookmarked any stories yet."
+    "noBookmarks": "You have not bookmarked any stories yet.",
+    "books": "My books",
+    "noBooks": "No books yet. Books you buy or can read with your subscription appear here.",
+    "viaPurchase": "Bought",
+    "viaSubscription": "Subscription"
   },
   "bookmark": {
     "add": "Bookmark",
@@ -448,5 +454,69 @@
   "theme": {
     "dark": "Switch to dark mode",
     "light": "Switch to light mode"
+  },
+  "books": {
+    "free": "Free",
+    "premium": "Paid",
+    "status": {
+      "DRAFT": "Draft",
+      "PUBLISHED": "Published",
+      "UNPUBLISHED": "Unpublished"
+    },
+    "admin": {
+      "title": "Books",
+      "create": "New book",
+      "empty": "No books yet. Create one from published stories.",
+      "edit": "Edit",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "pdf": "Download PDF",
+      "back": "Back to books",
+      "createTitle": "New book",
+      "editTitle": "Edit book",
+      "saveDraft": "Save as draft",
+      "saveChanges": "Save changes",
+      "saved": "Saved.",
+      "savedLive": "Saved. Readers see the changes now.",
+      "published": "Book published.",
+      "unpublished": "Book unpublished. It is hidden from readers until you publish it again.",
+      "deleted": "Draft book deleted.",
+      "deleteConfirm": "Delete this draft book? This cannot be undone.",
+      "col": {
+        "title": "Title",
+        "status": "Status",
+        "access": "Access",
+        "stories": "Stories",
+        "updated": "Updated",
+        "actions": "Actions"
+      },
+      "form": {
+        "title": "Book title",
+        "description": "Description",
+        "cover": "Cover image",
+        "access": "Access",
+        "price": "Price (₹)",
+        "inBook": "Stories in this book (reading order)",
+        "noneSelected": "No stories selected yet.",
+        "published": "Published stories",
+        "onlyPublished": "Only published stories can be added. Each book is saved as a draft; press Publish to show it to readers.",
+        "titleRequired": "Enter a book title."
+      }
+    },
+    "public": {
+      "title": "Books",
+      "intro": "Groups of stories. Open a book to see what is inside.",
+      "empty": "No books are published yet.",
+      "back": "Back to books",
+      "noCover": "No cover",
+      "stories": "{{count}} stories",
+      "index": "Contents",
+      "pages": "Pages {{from}}–{{to}}",
+      "locked": "Buy this book or subscribe to read its stories.",
+      "buy": "Buy book",
+      "viaPurchase": "You bought this book. You can read every story in it.",
+      "viaSubscription": "Your subscription includes this book.",
+      "freeBook": "This book is free to read."
+    }
   }
 }

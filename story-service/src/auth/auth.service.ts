@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, ConflictException, ForbiddenException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as argon2 from 'argon2';
@@ -48,7 +48,7 @@ export class AuthService {
 
   // ---------- Registration and verification ----------
 
-  /** Always returns the same message so the response does not reveal whether an email is registered. */
+  /** A new email gets a verification link. An email that already has an account is refused, so the person uses Forgot password. */
   async registerAuthor(dto: RegisterAuthorDto): Promise<{ message: string }> {
     if (dto.password !== dto.confirmPassword) {
       throw new BadRequestException(t('auth.passwordMismatch'));
@@ -57,8 +57,11 @@ export class AuthService {
 
     const email = normalizeEmail(dto.email);
     const existing = await this.users.findOne({ where: { email } });
+    if (existing) {
+      throw new ConflictException(t('auth.emailExists'));
+    }
 
-    if (!existing) {
+    {
       const rawToken = await this.dataSource.transaction(async (m) => {
         const user = await m.save(
           m.create(User, {
@@ -75,13 +78,6 @@ export class AuthService {
       });
       const message = this.mail.verificationEmail(this.frontendLink(this.cfg.frontend.verifyEmailPath, rawToken));
       await this.mail.send(email, message.subject, message.text);
-    } else if (!existing.emailVerified) {
-      // Registered earlier but never verified (for example before email was set up): send a fresh link.
-      const rawToken = await this.dataSource.transaction((m) =>
-        this.createVerificationToken(m, existing.id, VerificationTokenType.EMAIL_VERIFICATION, this.cfg.tokens.emailVerificationTtlMs),
-      );
-      const message = this.mail.verificationEmail(this.frontendLink(this.cfg.frontend.verifyEmailPath, rawToken));
-      await this.mail.send(email, message.subject, message.text);
     }
 
     return { message: t('auth.registerAccepted') };
@@ -89,11 +85,14 @@ export class AuthService {
 
   /**
    * Reader self-registration. The reader gets no password yet: an emailed link lets them set one.
-   * Same response for new and existing emails, so the form cannot reveal who is registered.
+   * An email that already has a password is refused, so the person uses Forgot password.
    */
   async registerReader(dto: RegisterReaderDto): Promise<{ message: string }> {
     const email = normalizeEmail(dto.email);
     const existing = await this.users.findOne({ where: { email } });
+    if (existing?.passwordHash) {
+      throw new ConflictException(t('auth.emailExists'));
+    }
 
     // Only create a link when nothing usable exists: a new account, or an account that still has no password.
     if (!existing || !existing.passwordHash) {

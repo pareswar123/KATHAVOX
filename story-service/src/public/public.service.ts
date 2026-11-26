@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MoreThan, Repository, SelectQueryBuilder } from 'typeorm';
 import type { AuthenticatedUser } from '../auth/auth.decorators';
+import { BooksService } from '../books/books.service';
 import { AppConfig } from '../config/app-config';
 import { Paginated, paginate, resolvePage } from '../common/pagination';
 import {
@@ -34,6 +35,7 @@ export class PublicService {
     @InjectRepository(StoryPurchase) private readonly purchases: Repository<StoryPurchase>,
     @InjectRepository(UserSubscription) private readonly subscriptions: Repository<UserSubscription>,
     private readonly cfg: AppConfig,
+    private readonly books: BooksService,
   ) {}
 
   categories() {
@@ -128,6 +130,8 @@ export class PublicService {
         note: { kind: 'SUBSCRIPTION', endDate: sub.endDate.toISOString(), planName: sub.plan?.name ?? '' },
       };
     }
+    // Inside a book the reader can open (free book, bought book, or subscription).
+    if (await this.books.canReadStoryViaBooks(user, story.id)) return { entitled: true, note: null };
     return { entitled: false, note: null };
   }
 

@@ -6,9 +6,10 @@ import { ApiEnvelope } from '../http/api.types';
 
 /** Body for creating a Razorpay order. The amount is calculated by the server, never sent by the browser. */
 export interface CreateOrderInput {
-  purchaseType: 'STORY_PURCHASE' | 'SUBSCRIPTION';
+  purchaseType: 'STORY_PURCHASE' | 'SUBSCRIPTION' | 'BOOK_PURCHASE';
   storyId?: string;
   planId?: string;
+  bookId?: string;
   checkoutEmail: string;
   fullName?: string;
 }

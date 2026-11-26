@@ -55,6 +55,9 @@ const adminChildren: Routes = [
   { path: 'catalogue', component: CatalogueComponent, title: () => translate('pageTitles.catalogue') },
   { path: 'subscription-plans', component: SubscriptionPlansComponent, title: () => translate('subscriptions.admin.title') },
   { path: 'payments', component: AdminPaymentsComponent, title: () => translate('payments.title') },
+  { path: 'books', loadComponent: () => import('./features/books/admin-books-list.component').then((m) => m.AdminBooksListComponent), title: () => translate('books.admin.title') },
+  { path: 'books/create', loadComponent: () => import('./features/books/admin-book-form.component').then((m) => m.AdminBookFormComponent), title: () => translate('books.admin.createTitle') },
+  { path: 'books/:id/edit', loadComponent: () => import('./features/books/admin-book-form.component').then((m) => m.AdminBookFormComponent), title: () => translate('books.admin.editTitle') },
 ];
 
 export const routes: Routes = [
@@ -127,6 +130,8 @@ export const routes: Routes = [
     children: [
       { path: '', component: HomeComponent, title: () => translate('placeholder.home') },
       { path: 'reader/my-library', component: MyLibraryComponent, canActivate: [authGuard], title: () => translate('pageTitles.library') },
+      { path: 'books', loadComponent: () => import('./features/books/public-books.component').then((m) => m.PublicBooksComponent), title: () => translate('books.public.title') },
+      { path: 'book/:slug', loadComponent: () => import('./features/books/book-detail.component').then((m) => m.BookDetailComponent) },
       { path: 'subscriptions', component: SubscriptionsComponent, title: () => translate('subscriptions.page.title'), data: { hideSearch: true } },
       { path: 'story/:slug', component: StoryDetailComponent, data: { hideSearch: true } },
       { path: 'story/:slug/page/:page', component: StoryReaderComponent, data: { hideSearch: true } },

@@ -16,6 +16,7 @@ import {
 } from '../database/entities';
 import { t } from '../i18n/i18n';
 import { ReaderBookmark } from '../database/entities/bookmark.entity';
+import { BooksService } from '../books/books.service';
 
 const LIVE_STATUSES = [StoryStatus.PUBLISHED, StoryStatus.PENDING_APPROVAL];
 
@@ -32,6 +33,7 @@ export class ReaderService {
     @InjectRepository(SubscriptionPlan) private readonly plans: Repository<SubscriptionPlan>,
     @InjectRepository(Payment) private readonly payments: Repository<Payment>,
     @InjectRepository(ReaderBookmark) private readonly bookmarks: Repository<ReaderBookmark>,
+    private readonly books: BooksService,
   ) {}
 
   async readPage(user: AuthenticatedUser, slug: string, pageNumber: number) {
@@ -89,6 +91,7 @@ export class ReaderService {
   }
 
   async library(user: AuthenticatedUser) {
+    const bookList = await this.books.libraryFor(user);
     const owned = await this.purchases.find({
       where: { userId: user.id, status: PurchaseStatus.ACTIVE },
       relations: { story: true },
@@ -109,6 +112,7 @@ export class ReaderService {
 
     return {
       bookmarks: bookmarked,
+      books: bookList,
       purchasedStories: owned.map((p) => ({
         storyId: p.storyId,
         slug: p.story?.slug ?? '',
@@ -144,6 +148,9 @@ export class ReaderService {
 
     const owned = await this.purchases.findOne({ where: { userId: user.id, storyId: story.id, status: PurchaseStatus.ACTIVE } });
     if (owned) return { allowed: true };
+
+    // A story inside a book the reader can open (free book, bought book, or subscription).
+    if (await this.books.canReadStoryViaBooks(user, story.id)) return { allowed: true };
 
     const now = new Date();
     const active = await this.subscriptions.findOne({

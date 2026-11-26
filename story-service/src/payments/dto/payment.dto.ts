@@ -13,6 +13,11 @@ export class CreateOrderDto {
   @IsUUID()
   storyId?: string;
 
+  @ApiPropertyOptional({ description: 'Required for BOOK_PURCHASE' })
+  @IsOptional()
+  @IsUUID()
+  bookId?: string;
+
   @ApiPropertyOptional({ description: 'Required for SUBSCRIPTION' })
   @IsOptional()
   @IsUUID()

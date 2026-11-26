@@ -125,6 +125,7 @@ export class UserSubscription {
 export enum PaymentType {
   STORY_PURCHASE = 'STORY_PURCHASE',
   SUBSCRIPTION = 'SUBSCRIPTION',
+  BOOK_PURCHASE = 'BOOK_PURCHASE',
 }
 
 export enum PaymentStatus {
@@ -154,6 +155,9 @@ export class Payment {
 
   @Column({ name: 'plan_id', type: 'uuid', nullable: true })
   planId: string | null;
+
+  @Column({ name: 'book_id', type: 'uuid', nullable: true })
+  bookId: string | null;
 
   /** Integer paise, calculated on the server only. */
   @Column({ name: 'amount_paise', type: 'integer' })

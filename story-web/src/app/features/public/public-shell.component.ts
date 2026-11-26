@@ -22,6 +22,7 @@ import { ThemeToggleComponent } from '../../shared/theme-toggle/theme-toggle.com
         <a routerLink="/" class="text-lg font-semibold text-slate-900 dark:text-slate-100">{{ 'placeholder.home' | translate }}</a>
         <nav class="flex flex-wrap items-center gap-2 text-sm sm:gap-4">
           <a routerLink="/" class="text-slate-700 hover:underline dark:text-slate-300">{{ 'public.nav.home' | translate }}</a>
+          <a routerLink="/books" class="text-slate-700 hover:underline dark:text-slate-300">{{ 'public.nav.books' | translate }}</a>
           <form [hidden]="!showSearch()" (submit)="search(q.value); $event.preventDefault()" class="flex">
             <input
               #q

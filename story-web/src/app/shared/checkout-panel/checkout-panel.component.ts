@@ -63,9 +63,10 @@ export class CheckoutPanelComponent {
   private readonly auth = inject(AuthStore);
   private readonly router = inject(Router);
 
-  readonly purchaseType = input.required<'STORY_PURCHASE' | 'SUBSCRIPTION'>();
+  readonly purchaseType = input.required<'STORY_PURCHASE' | 'SUBSCRIPTION' | 'BOOK_PURCHASE'>();
   readonly storyId = input<string | null>(null);
   readonly planId = input<string | null>(null);
+  readonly bookId = input<string | null>(null);
   /** Button text and receipt description, for example "Buy for ₹49.00". */
   readonly label = input.required<string>();
 
@@ -107,6 +108,7 @@ export class CheckoutPanelComponent {
           purchaseType: this.purchaseType(),
           storyId: this.storyId() ?? undefined,
           planId: this.planId() ?? undefined,
+          bookId: this.bookId() ?? undefined,
           checkoutEmail,
           fullName,
         }),

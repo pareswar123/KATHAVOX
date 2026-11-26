@@ -18,6 +18,7 @@
     "verificationInvalid": "This verification link is invalid or has expired",
     "resetInvalid": "This link is invalid or has expired",
     "registerAccepted": "If the address is new, a verification email has been sent.",
+    "emailExists": "This email is already registered. Log in, or use Forgot password to set a new password.",
     "resetAccepted": "If an account exists for this email, a reset link has been sent.",
     "readerRegisterAccepted": "Check your email. We sent a link to set your password."
   },
@@ -40,6 +41,19 @@
     "setPasswordBody": "Thank you for your purchase. Set your password here: {{link}}\n\nThis link expires in {{hours}} hours.",
     "welcomeSubject": "Welcome to {{brand}}: set your password",
     "welcomeBody": "Welcome to {{brand}}. Set your password here: {{link}}\n\nThis link expires in {{hours}} hours."
+  },
+  "books": {
+    "notFound": "Book not found",
+    "alreadyPublished": "This book is already published",
+    "notPublished": "This book is not published",
+    "notPublishedYet": "This book has no published version to download yet",
+    "notDeletable": "Only draft books can be deleted",
+    "duplicateStory": "A story can be added to a book only once",
+    "storyNotPublished": "Only published stories can be added to a book",
+    "priceRequired": "A paid book needs a price above zero",
+    "noStories": "Add at least one published story before publishing the book",
+    "notForSale": "This book is not available for purchase",
+    "alreadyOwned": "You already own this book"
   },
   "stories": {
     "notFound": "Story not found",

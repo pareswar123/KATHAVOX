@@ -13,6 +13,7 @@ import { ReaderModule } from './reader/reader.module';
 import { StoriesModule } from './stories/stories.module';
 import { UploadsModule } from './uploads/uploads.module';
 import { ContentModule } from './content/content.module';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ContentModule } from './content/content.module';
     ContentModule,
     AuthModule,
     StoriesModule,
+    BooksModule,
     UploadsModule,
     SubscriptionsModule,
     PaymentsModule,

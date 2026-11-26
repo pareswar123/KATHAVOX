@@ -10,6 +10,7 @@ import {
   UserSubscription,
   VerificationToken,
 } from '../database/entities';
+import { Book, BookPurchase } from '../database/entities/book.entity';
 import { MailService } from '../mail/mail.service';
 import { AdminPaymentsController } from './admin-payments.controller';
 import { PaymentsController } from './payments.controller';
@@ -19,6 +20,8 @@ import { PaymentsService } from './payments.service';
   imports: [
     TypeOrmModule.forFeature([
       Payment,
+      Book,
+      BookPurchase,
       Story,
       StoryPurchase,
       SubscriptionPlan,
